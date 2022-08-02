@@ -31,4 +31,11 @@ mod_carro2
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
-
+g1 <- ggplot(mod_carro1, aes(x = marca, y = media)) +
+  geom_col() +
+  geom_errorbar(aes(x = marca, y = media,
+                    ymin = media - se,
+                    ymax = media + se),
+                width = 0.3, size = 0.8) +
+  coord_flip()
+g1
