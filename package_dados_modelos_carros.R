@@ -40,5 +40,21 @@ g1 <- ggplot(mod_carro1, aes(x = fct_reorder(marca, media),
                 width = 0.3, size = 0.6) +
   scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip() +
-  labs(x = "Marcas de carro", y = "Número médio de modelos")
+  labs(x = "Marcas de carro", 
+       y = "Número médio de modelos total")
 g1
+
+g2 <- ggplot(mod_carro2, aes(x = fct_reorder(marca, media), 
+                             y = media)) +
+  geom_col(fill = "#d95f0e") +
+  geom_errorbar(aes(x = marca, y = media,
+                    ymin = media - se,
+                    ymax = media + se),
+                width = 0.3, size = 0.6) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+  coord_flip() +
+  labs(x = "Marcas de carro", 
+       y = "Número médio de modelos por ano")
+g2
+
+gridExtra::grid.arrange(g1, g2)
