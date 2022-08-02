@@ -10,3 +10,25 @@ library(tidyverse)
 
 mod_carro <- dados::comuns
 view(mod_carro)
+
+# Manipular dados --------------------------------------------------------------------------------------------------------------------------
+
+mod_carro1 <- mod_carro %>%
+  group_by(marca) %>%
+  summarise(media = mean(total_modelos),
+            sd = sd(total_modelos),
+            n = n(),
+            se = sd/sqrt(n))
+mod_carro1
+
+mod_carro2 <- mod_carro %>%
+  group_by(marca) %>%
+  summarise(media = mean(total_modelos_ano),
+            sd = sd(total_modelos_ano),
+            n = n(),
+            se = sd/sqrt(n))
+mod_carro2
+
+# Gráficos ---------------------------------------------------------------------------------------------------------------------------------
+
+
