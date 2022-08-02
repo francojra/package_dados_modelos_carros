@@ -39,5 +39,6 @@ g1 <- ggplot(mod_carro1, aes(x = fct_reorder(marca, media),
                     ymax = media + se),
                 width = 0.3, size = 0.6) +
   scale_y_continuous(expand = expansion(mult = c(0, .1))) +
-  coord_flip()
+  coord_flip() +
+  labs(x = "Marcas de carro", y = "Número médio de modelos")
 g1
