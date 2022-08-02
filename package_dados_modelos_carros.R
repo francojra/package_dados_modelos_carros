@@ -31,11 +31,13 @@ mod_carro2
 
 # Gráficos ---------------------------------------------------------------------------------------------------------------------------------
 
-g1 <- ggplot(mod_carro1, aes(x = marca, y = media)) +
-  geom_col() +
+g1 <- ggplot(mod_carro1, aes(x = fct_reorder(marca, media), 
+                             y = media)) +
+  geom_col(fill = "#756bb1") +
   geom_errorbar(aes(x = marca, y = media,
                     ymin = media - se,
                     ymax = media + se),
-                width = 0.3, size = 0.8) +
+                width = 0.3, size = 0.6) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
   coord_flip()
 g1
